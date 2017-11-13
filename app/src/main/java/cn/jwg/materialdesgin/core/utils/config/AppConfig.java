@@ -9,6 +9,7 @@ public class AppConfig {
     //通用设置
     public static String DATABASE_NAME = "demo-db";
     public static String currentUserId;             //当前登录用户的userId
+    public static String userPhoneNum;
 
 
     public static final String XZL_DEBUG_BASE_URL = "http://172.16.10.13:9004/api/v0";
@@ -21,5 +22,5 @@ public class AppConfig {
     public static final String WEB_APP_PLAN_URL = WEB_SERVICE_PATIENT_URL + "/plan";
 
     public static final String DEMO_FILE_PATH_SDCARD =
-            "data/data/" + "cn.jwg.materialdesgin.core" + "/databases/" + AppConfig.currentUserId;
+            "data/data/" + "cn.jwg.materialdesgin.core" + "/databases/";
 }

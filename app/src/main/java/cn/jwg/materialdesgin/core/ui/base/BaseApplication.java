@@ -6,7 +6,6 @@ import android.content.Context;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.WindowManager;
-import cn.jwg.materialdesgin.core.database.sqlite.utils.GreenDaoUtils;
 import cn.jwg.materialdesgin.core.utils.interceptor.TokenAuthenticator;
 import com.blankj.utilcode.util.Utils;
 import com.facebook.stetho.Stetho;
@@ -45,18 +44,9 @@ public class BaseApplication extends Application {
 
         init();
 
-        initGreenDAO();
-
         initOkGo();
 
         initActivityLifecycleCallbacks();
-    }
-
-    /**
-     * 初始化GreenDao
-     */
-    private void initGreenDAO() {
-        GreenDaoUtils.getSingleTon().getDaoSession();
     }
 
     private void init() {

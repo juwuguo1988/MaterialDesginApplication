@@ -2,6 +2,7 @@ package cn.jwg.materialdesgin.core.ui.activity;
 
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -9,6 +10,7 @@ import cn.jwg.materialdesgin.core.R;
 import cn.jwg.materialdesgin.core.common.bean.SucLoginBean;
 import cn.jwg.materialdesgin.core.database.sp.SharedPreferencesUtil;
 import cn.jwg.materialdesgin.core.database.sp.UserInfoUtils;
+import cn.jwg.materialdesgin.core.database.sqlite.utils.GreenDaoUtils;
 import cn.jwg.materialdesgin.core.ui.base.TitleActivity;
 import cn.jwg.materialdesgin.core.utils.config.AppConfig;
 import cn.jwg.materialdesgin.core.utils.network.callback.DialogCallback;
@@ -73,8 +75,8 @@ public class LoginActivity extends TitleActivity implements View.OnClickListener
         OkGo.<SucLoginBean>post(AppConfig.WEB_SERVICE_TOKEN_URL)
                 .tag(this)
                 .params("grant_type", "password")
-                .params("username", "17710189466")
-                .params("password", "123456")
+                .params("username", mPhoneNum)
+                .params("password", mPassword)
                 .params("device_type", "android")
                 .params("device_token", "111111111111111111111111")
                 .headers("Authorization", "Basic cGF0aWVudF9hcHA6")
@@ -95,15 +97,26 @@ public class LoginActivity extends TitleActivity implements View.OnClickListener
     }
 
 
+    /**
+     * 初始化GreenDao
+     */
+    private void initGreenDAO() {
+        GreenDaoUtils.getSingleTon().getDaoSession();
+    }
+
     private void loginSuccess(SucLoginBean bean) {
         SharedPreferencesUtil.getInstance(this).putAppLogoutFlag(false);
         UserInfoUtils.saveTokenInfo(this, bean);// 如有user_info.xml被删除的现象
+        AppConfig.currentUserId = bean.getUid();
         startActivity(new Intent(this, RxJavaActivity.class));
+        initGreenDAO();
         finish();
     }
 
     private boolean checkLogin() {
         mPhoneNum = et_telephone_content.getText().toString().trim();
+        Log.e("========mPhoneNum======", "==============>" + mPhoneNum);
+        AppConfig.userPhoneNum = mPhoneNum;
         if (TextUtils.isEmpty(mPhoneNum)) {
             showToast(getString(R.string.login_input_phone_num));
             return false;

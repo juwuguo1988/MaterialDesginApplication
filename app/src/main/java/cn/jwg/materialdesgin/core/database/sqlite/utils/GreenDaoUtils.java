@@ -1,6 +1,7 @@
 package cn.jwg.materialdesgin.core.database.sqlite.utils;
 
 import android.database.sqlite.SQLiteDatabase;
+import cn.jwg.materialdesgin.core.database.sqlite.context.DatabaseContext;
 import cn.jwg.materialdesgin.core.database.sqlite.greendao.DaoMaster;
 import cn.jwg.materialdesgin.core.database.sqlite.greendao.DaoSession;
 import cn.jwg.materialdesgin.core.ui.base.BaseApplication;
@@ -20,18 +21,20 @@ public class GreenDaoUtils {
     }
 
     public static GreenDaoUtils getSingleTon() {
-        if (greenDaoUtils == null) {
+      /*  if (greenDaoUtils == null) {
             synchronized (GreenDaoUtils.class) {
                 if (greenDaoUtils == null) {
                     greenDaoUtils = new GreenDaoUtils();
                 }
             }
-        }
+        }*/
+        greenDaoUtils = new GreenDaoUtils();
         return greenDaoUtils;
     }
 
     private void initGreenDao() {
-        mHelper = new DaoMaster.DevOpenHelper(BaseApplication.getInstance(), AppConfig.DATABASE_NAME, null);
+        DatabaseContext databaseContext = new DatabaseContext(BaseApplication.getContext());
+        mHelper = new DaoMaster.DevOpenHelper(databaseContext, AppConfig.DATABASE_NAME, null);
         db = mHelper.getWritableDatabase();
         mDaoMaster = new DaoMaster(db);
         mDaoSession = mDaoMaster.newSession();
