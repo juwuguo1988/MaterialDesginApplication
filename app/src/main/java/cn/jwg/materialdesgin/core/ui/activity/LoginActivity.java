@@ -2,7 +2,6 @@ package cn.jwg.materialdesgin.core.ui.activity;
 
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,6 +16,7 @@ import cn.jwg.materialdesgin.core.utils.network.callback.DialogCallback;
 import cn.jwg.materialdesgin.core.utils.string.StringUtils;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
+import java.io.File;
 
 
 public class LoginActivity extends TitleActivity implements View.OnClickListener {
@@ -109,13 +109,23 @@ public class LoginActivity extends TitleActivity implements View.OnClickListener
         UserInfoUtils.saveTokenInfo(this, bean);// 如有user_info.xml被删除的现象
         AppConfig.currentUserId = bean.getUid();
         startActivity(new Intent(this, RxJavaActivity.class));
-        initGreenDAO();
+        isNewTableCreated();
         finish();
+    }
+
+    //判断是否需要生成数据库
+
+    private void isNewTableCreated() {
+        File fileUrl = new File(AppConfig.DEMO_FILE_PATH_SDCARD + AppConfig.userPhoneNum);
+        File dbFile = new File(AppConfig.DEMO_FILE_PATH_SDCARD +
+                AppConfig.userPhoneNum + "/" + AppConfig.DATABASE_NAME);
+        if (!fileUrl.exists() && !dbFile.exists()) {
+            initGreenDAO();
+        }
     }
 
     private boolean checkLogin() {
         mPhoneNum = et_telephone_content.getText().toString().trim();
-        Log.e("========mPhoneNum======", "==============>" + mPhoneNum);
         AppConfig.userPhoneNum = mPhoneNum;
         if (TextUtils.isEmpty(mPhoneNum)) {
             showToast(getString(R.string.login_input_phone_num));
