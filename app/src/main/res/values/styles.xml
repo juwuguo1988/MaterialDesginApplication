@@ -1,0 +1,331 @@
+<resources>
+
+
+  <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+
+  <!-- Application theme. -->
+  <style name="AppTheme" parent="AppBaseTheme">
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowBackground">@color/white</item>
+    <item name="android:windowAnimationStyle">@style/leftIn_rightOut</item>
+  </style>
+
+  <style name="MainTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <item name="android:actionBarStyle">@style/ActionBar</item>
+  </style>
+
+  <style name="leftIn_rightOut">
+    <item name="android:activityOpenEnterAnimation">@anim/in_rightleft</item>
+    <item name="android:activityOpenExitAnimation">@anim/out_rightleft</item>
+    <item name="android:activityCloseEnterAnimation">@anim/in_leftright</item>
+    <item name="android:activityCloseExitAnimation">@anim/out_leftright</item>
+  </style>
+
+  <style name="ActionBar" parent="android:Widget.ActionBar">
+    <item name="android:background">@color/c_2bb2ba</item>
+    <item name="android:icon">@android:color/transparent</item>
+    <item name="android:titleTextStyle">@style/ActionBar.TitleText</item>
+  </style>
+
+  <style name="ActionBar.TitleText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+    <item name="android:textColor">@android:color/white</item>
+    <item name="android:textSize">18sp</item>
+  </style>
+
+
+  <style name="text_white_12">
+    <item name="android:textSize">12sp</item>
+    <item name="android:textColor">@color/white</item>
+  </style>
+
+  <style name="text_white_14">
+    <item name="android:textSize">14sp</item>
+    <item name="android:textColor">@color/white</item>
+  </style>
+
+  <style name="text_white_16">
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/white</item>
+  </style>
+
+  <style name="text_white_20">
+    <item name="android:textSize">20sp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/white</item>
+  </style>
+
+  <style name="s_666666_12">
+    <item name="android:textSize">12sp</item>
+    <item name="android:textColor">@color/c_666666</item>
+  </style>
+
+  <style name="s_666666_15">
+    <item name="android:textSize">15sp</item>
+    <item name="android:textColor">@color/c_666666</item>
+  </style>
+
+  <style name="s_666666_14">
+    <item name="android:textSize">14sp</item>
+    <item name="android:textColor">@color/c_666666</item>
+  </style>
+
+  <style name="s_666666_13">
+    <item name="android:textSize">13sp</item>
+    <item name="android:textColor">@color/c_666666</item>
+  </style>
+
+  <style name="s_666666_16">
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/c_666666</item>
+  </style>
+
+  <style name="s_666666_18">
+    <item name="android:textSize">18sp</item>
+    <item name="android:textColor">@color/c_666666</item>
+  </style>
+
+  <style name="s_666666_20">
+    <item name="android:textSize">20sp</item>
+    <item name="android:textColor">@color/c_666666</item>
+  </style>
+
+  <style name="s_666666_22">
+    <item name="android:textSize">22sp</item>
+    <item name="android:textColor">@color/c_666666</item>
+  </style>
+
+  <style name="s_666666_24">
+    <item name="android:textSize">24sp</item>
+    <item name="android:textColor">@color/c_666666</item>
+  </style>
+
+  <style name="s_666666_28">
+    <item name="android:textSize">28sp</item>
+    <item name="android:textColor">@color/c_666666</item>
+  </style>
+
+  <style name="s_cccccc_16">
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/c_cccccc</item>
+  </style>
+
+  <style name="s_6dd1c8_12">
+    <item name="android:textSize">12sp</item>
+    <item name="android:textColor">@color/c_6dd1c8</item>
+  </style>
+
+  <style name="s_6dd1c8_16">
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/c_6dd1c8</item>
+  </style>
+
+  <style name="s_6dd1c8_20">
+    <item name="android:textSize">20sp</item>
+    <item name="android:textColor">@color/c_6dd1c8</item>
+  </style>
+
+  <style name="s_6dd1c8_28">
+    <item name="android:textSize">28sp</item>
+    <item name="android:textColor">@color/c_6dd1c8</item>
+  </style>
+
+  <style name="s_999999_20">
+    <item name="android:textSize">20sp</item>
+    <item name="android:textColor">@color/c_999999</item>
+  </style>
+
+  <style name="s_999999_24">
+    <item name="android:textSize">24sp</item>
+    <item name="android:textColor">@color/c_999999</item>
+  </style>
+
+  <style name="s_999999_28">
+    <item name="android:textSize">28sp</item>
+    <item name="android:textColor">@color/c_999999</item>
+  </style>
+
+  <style name="s_999999_18">
+    <item name="android:textSize">18sp</item>
+    <item name="android:textColor">@color/c_999999</item>
+  </style>
+
+  <style name="s_999999_16">
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/c_999999</item>
+  </style>
+
+  <style name="s_999999_14">
+    <item name="android:textSize">14sp</item>
+    <item name="android:textColor">@color/c_999999</item>
+  </style>
+
+  <style name="s_999999_12">
+    <item name="android:textSize">12sp</item>
+    <item name="android:textColor">@color/c_999999</item>
+  </style>
+
+  <style name="s_333333_15">
+    <item name="android:textSize">15sp</item>
+    <item name="android:textColor">@color/c_333333</item>
+  </style>
+
+  <style name="s_2bb2ba_12">
+    <item name="android:textSize">12sp</item>
+    <item name="android:textColor">@color/c_2bb2ba</item>
+  </style>
+
+  <style name="s_2bb2ba_14">
+    <item name="android:textSize">14sp</item>
+    <item name="android:textColor">@color/c_2bb2ba</item>
+  </style>
+
+  <style name="s_2bb2ba_15">
+    <item name="android:textSize">15sp</item>
+    <item name="android:textColor">@color/c_2bb2ba</item>
+  </style>
+
+  <style name="s_2bb2ba_16">
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/c_2bb2ba</item>
+  </style>
+
+  <style name="s_2bb2ba_18">
+    <item name="android:textSize">18sp</item>
+    <item name="android:textColor">@color/c_2bb2ba</item>
+  </style>
+
+  <style name="s_2bb2ba_1">
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/c_2bb2ba</item>
+  </style>
+
+  <style name="s_2bb2ba_28">
+    <item name="android:textSize">28sp</item>
+    <item name="android:textColor">@color/c_2bb2ba</item>
+  </style>
+
+
+  <style name="s_c5c5c5_16">
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/c_c5c5c5</item>
+  </style>
+
+  <!-- 红边红字 -->
+  <style name="common_red_button">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">44dip</item>
+    <item name="android:background">@drawable/btn_red_common_bg</item>
+    <item name="android:textColor">@color/c_f93e4d</item>
+    <item name="android:textSize">12sp</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+  <!-- 灰底白字  e5e5e5-->
+  <style name="common_grey_button">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">44dip</item>
+    <item name="android:background">@drawable/btn_grey_common_bg_normal</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+
+  <!-- 绿色白字按钮 圆角16px -->
+  <style name="common_blue_button">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">44dip</item>
+    <item name="android:background">@drawable/btn_blue_common</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+  <!-- 绿色白字按钮 圆角45px -->
+  <style name="common_blue_button_45">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">44dip</item>
+    <item name="android:background">@drawable/btn_blue_common_45</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+  <!-- 透明c_666666字&&边按钮 -->
+  <style name="common_666666_side_line_button">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">44dip</item>
+    <item name="android:background">@drawable/btn_666666_text_side_bg</item>
+    <item name="android:textColor">@color/c_666666</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:padding">3sp</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+  <!-- 透明绿字绿边按钮 -->
+  <style name="common_blue_side_text_button">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">44dip</item>
+    <item name="android:background">@drawable/btn_transf_blue_side_bg</item>
+    <item name="android:textColor">@color/c_2bb2ba</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+  <!-- 透明绿字绿边按钮 -->
+  <style name="common_blue_side_text_button_45">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">44dip</item>
+    <item name="android:background">@drawable/btn_transf_blue_side_half_bg</item>
+    <item name="android:textColor">@color/c_2bb2ba</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+  <!-- 透明红字红边按钮 -->
+  <style name="common_red_side_text_button">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">44dip</item>
+    <item name="android:background">@drawable/btn_transf_red_side_bg</item>
+    <item name="android:textColor">@color/c_e14434</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+  <style name="edit_16">
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/c_666666</item>
+    <item name="android:background">@null</item>
+    <item name="android:singleLine">true</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:paddingLeft">6dip</item>
+    <item name="android:textColorHint">@color/c_666666</item>
+  </style>
+
+  <style name="edit_24">
+    <item name="android:textSize">24sp</item>
+    <item name="android:textColor">@color/c_666666</item>
+    <item name="android:background">@null</item>
+    <item name="android:singleLine">true</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:paddingLeft">6dip</item>
+    <item name="android:textColorHint">@color/c_666666</item>
+  </style>
+
+  <!-- 标题按钮 -->
+  <style name="title_button">
+    <item name="android:textSize">16sp</item>
+    <item name="android:textColor">@color/white</item>
+  </style>
+
+  <!-- 等待框 -->
+  <style name="loading">
+    <item name="android:indeterminateDrawable">@drawable/loading</item>
+  </style>
+
+  <style name="dialog_loading" parent="@android:style/Theme.NoTitleBar">
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowIsTranslucent">true</item>
+  </style>
+
+</resources>

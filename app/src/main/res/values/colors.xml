@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="actionbar_color">#bf360c</color>
+    <color name="drawer_arrow_second_color">#303f9f</color>
+    <color name="white">#FFFFFF</color> <!-- 白色 -->
+    <color name="cut_line">#F7F7F7</color> <!-- 分割线 -->
+    <color name="tab_cut_line">#E5E5E5</color> <!-- 标题分割线 -->
+    <color name="transparent">#00ffffff</color> <!-- 透明 -->
+    <color name="list_home_bg">#f4f4f4</color> <!-- 灰色 -->
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="black">#000000</color>
+    <color name="bg_f4f4f4">#F4F4F4</color>
+    <color name="c_cccccc">#CCCCCC</color> <!-- 灰色 -->
+    <color name="c_666666">#666666</color>
+    <color name="c_333333">#333333</color>
+    <color name="c_6dd1c8">#6DD1C8</color>
+    <color name="c_999999">#999999</color>
+    <color name="c_f5a623">#F5A623</color>
+    <color name="c_d58500">#D58500</color>
+    <color name="c_ffffff">#FFFFFF</color>
+    <color name="c_f93e4d">#F93E4D</color> <!-- 红色 -->
+    <color name="c_c5c5c5">#C5C5C5</color>
+    <color name="c_2bb2ba">#2BB2BA</color>
+    <color name="c_ff862e">#FF862E</color>
+    <color name="c_e14434">#E14434</color>
+    <color name="c_e0e0e0">#E0E0E0</color>
+
+    <color name="transparent_menu">#55000000</color>
+    <color name="c_979797">#979797</color> <!-- 分割线 -->
+</resources>

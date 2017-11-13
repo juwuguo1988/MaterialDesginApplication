@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/white"
+  android:orientation="vertical">
+
+  <android.support.design.widget.TextInputLayout
+    android:id="@+id/tl_telephone_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/rl_title">
+
+    <EditText
+      android:id="@+id/et_telephone_content"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:drawableLeft="@drawable/phonelogin_phone_normal"
+      android:drawablePadding="14dp"
+      android:hint="@string/hint_username" />
+  </android.support.design.widget.TextInputLayout>
+
+  <android.support.design.widget.TextInputLayout
+    android:id="@+id/tl_pwd_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/tl_telephone_content">
+
+    <EditText
+      android:id="@+id/et_pwd_content"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:drawableLeft="@drawable/phonelogin_password_normal"
+      android:drawablePadding="14dp"
+      android:hint="@string/et_pwd_hint" />
+  </android.support.design.widget.TextInputLayout>
+
+  <TextView
+    android:id="@+id/tv_user_login"
+    style="@style/common_blue_button"
+    android:layout_marginTop="60dp"
+    android:layout_marginLeft="33dp"
+    android:layout_marginRight="33dp"
+    android:layout_below="@+id/tl_pwd_content"
+    android:text="@string/user_login" />
+
+</RelativeLayout>
