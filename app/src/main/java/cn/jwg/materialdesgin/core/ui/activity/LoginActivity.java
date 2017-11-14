@@ -16,7 +16,6 @@ import cn.jwg.materialdesgin.core.utils.network.callback.DialogCallback;
 import cn.jwg.materialdesgin.core.utils.string.StringUtils;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
-import java.io.File;
 
 
 public class LoginActivity extends TitleActivity implements View.OnClickListener {
@@ -109,19 +108,8 @@ public class LoginActivity extends TitleActivity implements View.OnClickListener
         UserInfoUtils.saveTokenInfo(this, bean);// 如有user_info.xml被删除的现象
         AppConfig.currentUserId = bean.getUid();
         startActivity(new Intent(this, RxJavaActivity.class));
-        isNewTableCreated();
+        initGreenDAO();
         finish();
-    }
-
-    //判断是否需要生成数据库
-
-    private void isNewTableCreated() {
-        File fileUrl = new File(AppConfig.DEMO_FILE_PATH_SDCARD + AppConfig.userPhoneNum);
-        File dbFile = new File(AppConfig.DEMO_FILE_PATH_SDCARD +
-                AppConfig.userPhoneNum + "/" + AppConfig.DATABASE_NAME);
-        if (!fileUrl.exists() && !dbFile.exists()) {
-            initGreenDAO();
-        }
     }
 
     private boolean checkLogin() {

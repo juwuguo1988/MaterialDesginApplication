@@ -2,10 +2,11 @@ package cn.jwg.materialdesgin.core.database.sqlite.bean;
 
 import android.database.Cursor;
 import cn.jwg.materialdesgin.core.database.sqlite.greendao.MedicPlanDao;
+import cn.jwg.materialdesgin.core.database.sqlite.greendao.MedicPlanDao.Properties;
 import com.google.gson.annotations.SerializedName;
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Created by Juwuguo on 2017/10/13.
@@ -35,17 +36,51 @@ public class MedicPlan {
     private String boxUuid;
     private String planSeqWithBox;
 
+
     public MedicPlan() {
 
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @Generated(hash = 743860685)
-    public MedicPlan(Long mid, String planId, int takeAt, String medicineId,
-            String medicineName, String medicineHash, int medicineVia, int count,
-            int dosage, int cycleDays, int zone, int positionNo, String dosageUnit,
-            Long started, Long ended, Long remindFirstAt, String boxUuid,
-            String planSeqWithBox) {
+    public MedicPlan(Long mid, String planId, int takeAt, String medicineId, String medicineName, String medicineHash,
+            int medicineVia, int count, int dosage, int cycleDays, int zone, int positionNo, String dosageUnit,
+            Long started, Long ended, Long remindFirstAt, String boxUuid, String planSeqWithBox) {
         this.mid = mid;
         this.planId = planId;
         this.takeAt = takeAt;
@@ -230,7 +265,8 @@ public class MedicPlan {
         mp.setMedicineVia(cursor.getInt(cursor.getColumnIndex(MedicPlanDao.Properties.MedicineVia.columnName)));
         mp.setMedicineHash(cursor.getString(cursor.getColumnIndex(MedicPlanDao.Properties.MedicineHash.columnName)));
         mp.setRemindFirstAt(cursor.getLong(cursor.getColumnIndex(MedicPlanDao.Properties.RemindFirstAt.columnName)));
-
+        mp.setBoxUuid(cursor.getString(cursor.getColumnIndex(MedicPlanDao.Properties.BoxUuid.columnName)));
+        mp.setPlanSeqWithBox(cursor.getString(cursor.getColumnIndex(Properties.PlanSeqWithBox.columnName)));
         return mp;
     }
 
