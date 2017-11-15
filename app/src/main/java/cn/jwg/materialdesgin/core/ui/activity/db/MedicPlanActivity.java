@@ -598,7 +598,8 @@ public class MedicPlanActivity extends TitleActivity implements View.OnClickList
                 UserTableUtils.saveUser(mUserBean);
                 break;
             case R.id.tv_note_edit:
-                List<MedicPlan> strings = MedicPlanTableUtils.getNextMedicPlanReminder();
+                MedicPlan medicPlan = MedicPlanTableUtils.getMedicPlanByMedicPlanId("r6wXnl");
+                List<MedicPlan> strings = MedicPlanTableUtils.getMedicPlansByMedicHash(medicPlan.getMedicineHash());
                 Log.e(TAG, "================>" + strings.size());
                 break;
             case R.id.tv_note_query:

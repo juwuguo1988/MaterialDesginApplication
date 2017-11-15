@@ -5,7 +5,7 @@ import android.content.ContextWrapper;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
-import android.util.Log;
+import cn.jwg.materialdesgin.core.database.sp.UserInfoUtils;
 import cn.jwg.materialdesgin.core.utils.config.AppConfig;
 import java.io.File;
 import java.io.IOException;
@@ -16,8 +16,11 @@ import java.io.IOException;
 
 public class DatabaseContext extends ContextWrapper {
 
+    private Context mContext;
+
     public DatabaseContext(Context context) {
         super(context);
+        mContext = context;
     }
 
     /**
@@ -25,13 +28,13 @@ public class DatabaseContext extends ContextWrapper {
      */
     @Override
     public File getDatabasePath(String name) {
-        File file = new File(AppConfig.DEMO_FILE_PATH_SDCARD + AppConfig.userPhoneNum);
+        File file = new File(AppConfig.DEMO_FILE_PATH_SDCARD + UserInfoUtils.getUserPhoneNum(mContext));
         if (file.exists()) {
         } else {
             file.mkdir();
         }
         File dbFile = new File(AppConfig.DEMO_FILE_PATH_SDCARD +
-                AppConfig.userPhoneNum + "/" + AppConfig.DATABASE_NAME);
+                UserInfoUtils.getUserPhoneNum(mContext) + "/" + AppConfig.DATABASE_NAME);
         //数据库文件是否创建成功
         boolean isFileCreateSuccess = false;
         //判断文件是否存在，不存在则创建该文件

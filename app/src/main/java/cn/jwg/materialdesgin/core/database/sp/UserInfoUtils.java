@@ -14,6 +14,7 @@ public class UserInfoUtils {
     private static final String ACCESS_TOKEN = "access_token";
     private static final String REFRESH_TOKEN = "refresh_token";
     private static final String KEY_DOCTOR_ID = "doctorId";
+    private static final String USER_PHONE_NUM = "user_phone_num";
     private static final String TOKEN_EXPIRE_TIME = "token_expire_time";                        //token过期时间
     private static final String DOCTOR_REMINDER_CONTENT = "doctor_reminder_content";            //医生提醒最新一条记录
     private static final String DOCTOR_REMINDER_TIME = "doctor_reminder_time";                  //医生提醒最新一条记录的时间
@@ -47,6 +48,12 @@ public class UserInfoUtils {
         SharedPreferences share = context.getSharedPreferences(XML_USER_INFO, Context.MODE_PRIVATE);
         return share.getString(KEY_DOCTOR_ID, "");
     }
+
+    public static String getUserPhoneNum(Context context) {
+        SharedPreferences share = context.getSharedPreferences(XML_USER_INFO, Context.MODE_PRIVATE);
+        return share.getString(USER_PHONE_NUM, "");
+    }
+
 
     public static String getTokenExpireTime(Context context) {
         SharedPreferences share = context.getSharedPreferences(XML_USER_INFO, Context.MODE_PRIVATE);
@@ -114,6 +121,16 @@ public class UserInfoUtils {
         SharedPreferences.Editor edit = share.edit();
         if (doctorId != null) {
             edit.putString(KEY_DOCTOR_ID, doctorId);
+        }
+        edit.commit();
+        return true;
+    }
+
+    public static boolean saveUserPhoneNum(Context context, String userPhoneNum) {
+        SharedPreferences share = context.getSharedPreferences(XML_USER_INFO, Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = share.edit();
+        if (userPhoneNum != null) {
+            edit.putString(USER_PHONE_NUM, userPhoneNum);
         }
         edit.commit();
         return true;

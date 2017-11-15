@@ -114,7 +114,7 @@ public class LoginActivity extends TitleActivity implements View.OnClickListener
 
     private boolean checkLogin() {
         mPhoneNum = et_telephone_content.getText().toString().trim();
-        AppConfig.userPhoneNum = mPhoneNum;
+        UserInfoUtils.saveUserPhoneNum(this, mPhoneNum);
         if (TextUtils.isEmpty(mPhoneNum)) {
             showToast(getString(R.string.login_input_phone_num));
             return false;
