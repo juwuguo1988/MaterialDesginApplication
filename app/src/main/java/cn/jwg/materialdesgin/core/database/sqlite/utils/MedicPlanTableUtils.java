@@ -17,14 +17,18 @@ public class MedicPlanTableUtils {
 
     private static final int INTERVAL = 1000 * 60 * 60 * 24;// 24h
 
-    private static MedicPlanDao medicPlanDao = GreenDaoUtils.getSingleTon().getDaoSession().getMedicPlanDao();
+    private static MedicPlanDao medicPlanDao;
 
+    public static MedicPlanDao getSingleTon() {
+        medicPlanDao = GreenDaoUtils.getSingleTon().getDaoSession().getMedicPlanDao();
+        return medicPlanDao;
+    }
 
     /**
      * 将medicPlan入库
      */
     public static void saveMedicPlan(MedicPlan medicPlan) {
-        medicPlanDao.save(medicPlan);
+        MedicPlanTableUtils.getSingleTon().save(medicPlan);
     }
 
 
@@ -51,7 +55,7 @@ public class MedicPlanTableUtils {
             tempMedicPlan.setTakeAt(medicPlan.getTakeAt());
             tempMedicPlan.setZone(medicPlan.getZone());
 
-            medicPlanDao.update(tempMedicPlan);
+            MedicPlanTableUtils.getSingleTon().update(tempMedicPlan);
         }
 
     }
@@ -59,24 +63,24 @@ public class MedicPlanTableUtils {
     public static void deleteMedicPlanByPlanId(String planId) {
         MedicPlan medicPlan = getMedicPlanByMedicPlanId(planId);
         if (medicPlan != null) {
-            medicPlanDao.delete(medicPlan);
+            MedicPlanTableUtils.getSingleTon().delete(medicPlan);
         }
     }
 
 
     public static void deleteAllMedicPlan() {
-        medicPlanDao.deleteAll();
+        MedicPlanTableUtils.getSingleTon().deleteAll();
     }
 
     public static List<MedicPlan> getAllMedicPlans() {
-        return medicPlanDao.loadAll();
+        return MedicPlanTableUtils.getSingleTon().loadAll();
     }
 
     /**
      *
      */
     public static List<MedicPlan> getMedicPlansByMedicName() {
-        Cursor cursor = medicPlanDao.getDatabase().rawQuery("select * from MEDIC_PLAN where TAKE_AT = 480", null);
+        Cursor cursor = MedicPlanTableUtils.getSingleTon().getDatabase().rawQuery("select * from MEDIC_PLAN where TAKE_AT = 480", null);
         ArrayList<MedicPlan> beans = new ArrayList<>();
         try {
             while (cursor.moveToNext()) {
@@ -102,7 +106,7 @@ public class MedicPlanTableUtils {
      */
 
     public static List<MedicPlan> getAllMedicPlan() {
-        QueryBuilder qb = medicPlanDao.queryBuilder();
+        QueryBuilder qb = MedicPlanTableUtils.getSingleTon().queryBuilder();
         qb.where(qb.or(qb.and(MedicPlanDao.Properties.CycleDays.eq(0), MedicPlanDao.Properties.Ended.isNull()),
                 qb.and(MedicPlanDao.Properties.CycleDays.eq(1), MedicPlanDao.Properties.Ended.isNull()),
                 qb.and(MedicPlanDao.Properties.CycleDays.eq(-1), MedicPlanDao.Properties.Ended.isNull(),
@@ -115,7 +119,7 @@ public class MedicPlanTableUtils {
      */
 
     public static List<MedicPlan> getNextMedicReminderAndRecord() {
-        QueryBuilder qb = medicPlanDao.queryBuilder();
+        QueryBuilder qb = MedicPlanTableUtils.getSingleTon().queryBuilder();
         qb.where(qb.or(MedicPlanDao.Properties.Ended.isNull(),
                 MedicPlanDao.Properties.Ended.gt(System.currentTimeMillis() - INTERVAL)));
         return qb.list();
@@ -128,7 +132,7 @@ public class MedicPlanTableUtils {
      * + " where started < " + reminderTime + " and " + reminderTime + " < ended and takeAt = " + takeAt
      */
     public static List<MedicPlan> getUpdateMedicPlanReminder(long reminderTime, int takeAt) {
-        QueryBuilder qb = medicPlanDao.queryBuilder();
+        QueryBuilder qb = MedicPlanTableUtils.getSingleTon().queryBuilder();
         qb.where(MedicPlanDao.Properties.Started.lt(reminderTime),
                 MedicPlanDao.Properties.Ended.gt(reminderTime),
                 MedicPlanDao.Properties.TakeAt.eq(takeAt));
@@ -143,7 +147,7 @@ public class MedicPlanTableUtils {
      */
 
     public static List<MedicPlan> getNextMedicPlanReminder() {
-        QueryBuilder qb = medicPlanDao.queryBuilder();
+        QueryBuilder qb = MedicPlanTableUtils.getSingleTon().queryBuilder();
         qb.where(qb.or(qb.and(MedicPlanDao.Properties.CycleDays.eq(0),
                 MedicPlanDao.Properties.Ended.isNull(),
                 MedicPlanDao.Properties.Started.le(System.currentTimeMillis() + 1000)),
@@ -166,17 +170,18 @@ public class MedicPlanTableUtils {
         MedicPlan medicPlan = getMedicPlanByMedicPlanId(medicPlanId);
         if (medicPlan != null) {
             medicPlan.setEnded(timestamp);
-            medicPlanDao.update(medicPlan);
+            MedicPlanTableUtils.getSingleTon().update(medicPlan);
         }
     }
+
     /**
      * @param takeAt
      * @return
      */
 
     public static List<MedicPlan> getMedicPlansByTakeAt(int takeAt) {
-        QueryBuilder qb = medicPlanDao.queryBuilder();
-        qb.where(MedicPlanDao.Properties.TakeAt.eq(takeAt),MedicPlanDao.Properties.Ended.isNull());
+        QueryBuilder qb = MedicPlanTableUtils.getSingleTon().queryBuilder();
+        qb.where(MedicPlanDao.Properties.TakeAt.eq(takeAt), MedicPlanDao.Properties.Ended.isNull());
         return qb.list();
     }
 
@@ -188,7 +193,7 @@ public class MedicPlanTableUtils {
      */
 
     public static List<MedicPlan> getMedicPlansByMedicHash(String medicHash) {
-        QueryBuilder qb = medicPlanDao.queryBuilder();
+        QueryBuilder qb = MedicPlanTableUtils.getSingleTon().queryBuilder();
         qb.where(MedicPlanDao.Properties.MedicineHash.eq(medicHash),
                 qb.or(qb.and(MedicPlanDao.Properties.CycleDays.eq(0),
                         MedicPlanDao.Properties.Ended.isNull(),
@@ -204,17 +209,14 @@ public class MedicPlanTableUtils {
     }
 
     /**
-     *"select * from " + MedicPlanTable.TABLE_NAME
+     * "select * from " + MedicPlanTable.TABLE_NAME
      * + " where takeAt = " + takeAt
      * + " and " + MedicPlanTable.MEDIC_CYCLE_DAYS + " = " + cycleday
      * + " and ended is null
-     * @param takeAt
-     * @param cycleDay
-     * @return
      */
 
     public static List<MedicPlan> getMedicPlansByTakeAtAndCycleDay(int takeAt, int cycleDay) {
-        QueryBuilder qb = medicPlanDao.queryBuilder();
+        QueryBuilder qb = MedicPlanTableUtils.getSingleTon().queryBuilder();
         qb.where(MedicPlanDao.Properties.TakeAt.eq(takeAt),
                 MedicPlanDao.Properties.CycleDays.eq(cycleDay),
                 MedicPlanDao.Properties.Ended.isNull());
@@ -225,7 +227,7 @@ public class MedicPlanTableUtils {
      * 通过服药计划id 查询服药计划
      */
     public static MedicPlan getMedicPlanByMedicPlanId(String medicPlanId) {
-        return medicPlanDao.queryBuilder().where(MedicPlanDao.Properties.PlanId.eq(medicPlanId)).build().unique();
+        return MedicPlanTableUtils.getSingleTon().queryBuilder().where(MedicPlanDao.Properties.PlanId.eq(medicPlanId)).build().unique();
     }
 
 }

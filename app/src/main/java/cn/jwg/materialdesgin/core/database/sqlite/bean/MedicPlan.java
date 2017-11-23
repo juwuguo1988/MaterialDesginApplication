@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Transient;
 
 /**
  * Created by Juwuguo on 2017/10/13.
@@ -35,6 +36,8 @@ public class MedicPlan {
     private Long remindFirstAt;
     private String boxUuid;
     private String planSeqWithBox;
+    @Transient
+    private int selected;
 
 
     public MedicPlan() {
@@ -246,6 +249,13 @@ public class MedicPlan {
         this.planSeqWithBox = planSeqWithBox;
     }
 
+    public int getSelected() {
+        return selected;
+    }
+
+    public void setSelected(int selected) {
+        this.selected = selected;
+    }
 
     public MedicPlan cursorToBean(Cursor cursor) {
         MedicPlan mp = new MedicPlan();

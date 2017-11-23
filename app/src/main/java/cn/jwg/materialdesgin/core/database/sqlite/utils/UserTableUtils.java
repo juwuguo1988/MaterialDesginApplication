@@ -12,14 +12,19 @@ import java.util.List;
 
 public class UserTableUtils {
 
-    private static UserBeanDao userBeanDao = GreenDaoUtils.getSingleTon().getDaoSession().getUserBeanDao();
+    private static UserBeanDao userBeanDao;
 
+
+    public static UserBeanDao getSingleTon() {
+        userBeanDao = GreenDaoUtils.getSingleTon().getDaoSession().getUserBeanDao();
+        return userBeanDao;
+    }
 
     /**
      * 添加用户
      */
     public static void saveUser(UserBean userBean) {
-        userBeanDao.save(userBean);
+        UserTableUtils.getSingleTon().save(userBean);
     }
 
 
@@ -45,7 +50,7 @@ public class UserTableUtils {
             tempUserBean.setWeight(userBean.getWeight());
             tempUserBean.setType(userBean.getType());
 
-            userBeanDao.update(tempUserBean);
+            UserTableUtils.getSingleTon().update(tempUserBean);
         }
 
     }
@@ -54,7 +59,7 @@ public class UserTableUtils {
      * 删除所有用户
      */
     public static void deleteAllUser() {
-        userBeanDao.deleteAll();
+        UserTableUtils.getSingleTon().deleteAll();
     }
 
     /**
@@ -62,7 +67,7 @@ public class UserTableUtils {
      */
 
     public static List<UserBean> getAllMedicPlans() {
-        return userBeanDao.loadAll();
+        return UserTableUtils.getSingleTon().loadAll();
     }
 
 
@@ -70,7 +75,7 @@ public class UserTableUtils {
      * 通过用户id查询用户
      */
     public static UserBean getUserBeanByUserId(String userId) {
-        return userBeanDao.queryBuilder().where(UserBeanDao.Properties.UId.eq(userId)).build().unique();
+        return UserTableUtils.getSingleTon().queryBuilder().where(UserBeanDao.Properties.UId.eq(userId)).build().unique();
     }
 
 }
