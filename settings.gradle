@@ -1,1 +1,1 @@
-include ':app', ':lib', ':greendaoexamplegenerator'
+include ':app', ':greendaoexamplegenerator', ':dialoglib'

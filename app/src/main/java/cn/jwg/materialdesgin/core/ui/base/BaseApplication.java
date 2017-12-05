@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import cn.jwg.materialdesgin.core.utils.interceptor.TokenAuthenticator;
 import com.blankj.utilcode.util.Utils;
@@ -28,10 +29,18 @@ import org.greenrobot.greendao.query.QueryBuilder;
  */
 
 public class BaseApplication extends Application {
+
+    public static int verticalScreenWidth;      //竖屏时屏幕的宽度
+    public static int verticalScreenHeight;     //竖屏时屏幕的高度
+    public static int horizontalScreenWidth;    //横屏时屏幕的宽度
+    public static int horizontalScreenHeight;   //横屏时屏幕的高度
     private static Context sContext;
     private static BaseApplication sInstance;
     public static int SCREEN_WIDTH;
     private static int APP_ACTIVITY_COUNT = 0;//当前打开的页面的个数
+
+    public static float screenDensity;          //密度
+    public static float scaledDensity;
 
     @Override
     public void onCreate() {
@@ -41,6 +50,8 @@ public class BaseApplication extends Application {
         QueryBuilder.LOG_VALUES = true;
 
         Utils.init(this);
+
+        getScreenSize();
 
         init();
 
@@ -69,6 +80,19 @@ public class BaseApplication extends Application {
             throw new NullPointerException("APP sInstance is Null");
         }
         return sInstance;
+    }
+
+    /**
+     * 获取屏幕分辨率方法
+     */
+    private void getScreenSize() {
+        DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
+        screenDensity = dm.density;
+        scaledDensity = dm.scaledDensity;
+        verticalScreenWidth = dm.widthPixels;
+        verticalScreenHeight = dm.heightPixels;
+        horizontalScreenWidth = verticalScreenHeight;
+        horizontalScreenHeight = verticalScreenWidth;
     }
 
 
@@ -114,8 +138,6 @@ public class BaseApplication extends Application {
 
 
     }
-
-
 
 
     /**

@@ -5,7 +5,7 @@ android {
     buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "cn.jwg.materialdesgin.core"
-        minSdkVersion 14
+        minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -51,4 +51,9 @@ dependencies {
     compile 'com.lzy.net:okgo:3.0.2'
     compile 'com.lzy.net:okrx2:2.0.2'
     compile 'com.lzy.net:okserver:2.0.5'
+    //自定义dialog
+    compile project(path: ':dialoglib')
+
+    //图片框架
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }

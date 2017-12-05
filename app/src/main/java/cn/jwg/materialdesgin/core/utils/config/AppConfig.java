@@ -1,5 +1,8 @@
 package cn.jwg.materialdesgin.core.utils.config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Juwuguo on 2017/10/13.
  */
@@ -22,4 +25,18 @@ public class AppConfig {
 
     public static final String DEMO_FILE_PATH_SDCARD =
             "data/data/" + "cn.jwg.materialdesgin.core" + "/databases/";
+
+
+    public static List<String> getEmptyBoxCode() {
+        List<String> mBoxCodeList = new ArrayList<String>() {{
+            add("1");
+            add("2");
+            add("3");
+            add("4");
+            add("5");
+            add("6");
+        }};
+        return mBoxCodeList;
+    }
+
 }

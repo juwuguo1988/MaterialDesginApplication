@@ -1,7 +1,7 @@
 <resources>
 
 
-  <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+  <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar" />
 
   <!-- Application theme. -->
   <style name="AppTheme" parent="AppBaseTheme">
@@ -30,6 +30,13 @@
   <style name="ActionBar.TitleText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
     <item name="android:textColor">@android:color/white</item>
     <item name="android:textSize">18sp</item>
+  </style>
+
+  <style name="AppMenuTheme" parent="AppBaseTheme">
+    <item name="android:windowBackground">@color/transparent</item>
+    <item name="android:colorBackgroundCacheHint">@null</item>
+    <item name="android:windowIsTranslucent">true</item>›
+    <item name="android:windowAnimationStyle">@null</item>
   </style>
 
 
@@ -328,4 +335,14 @@
     <item name="android:windowIsTranslucent">true</item>
   </style>
 
+  <style name="AppNoAnimationTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="android:windowBackground">@color/transparent</item>
+    <item name="android:colorBackgroundCacheHint">@null</item>
+    <item name="android:windowIsTranslucent">true</item>›
+    <item name="android:windowAnimationStyle">@null</item>
+  </style>
+
+  <style name="AppThemeNoAnimation" parent="AppNoAnimationTheme">
+  </style>
 </resources>

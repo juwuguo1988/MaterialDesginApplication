@@ -19,4 +19,32 @@
   <dimen name="default_expanded_image_size">60dp</dimen>
   <dimen name="default_collapsed_text_size">18sp</dimen>
   <dimen name="default_expanded_text_size">19sp</dimen>
+
+  <dimen name="space_3dp">3dp</dimen>
+  <dimen name="space_6dp">6dp</dimen>
+  <dimen name="space_8dp">8dp</dimen>
+  <dimen name="space_10dp">10dp</dimen>
+  <dimen name="space_12dp">12dp</dimen>
+  <dimen name="space_14dp">14dp</dimen>
+  <dimen name="space_16dp">16dp</dimen>
+  <dimen name="space_18dp">18dp</dimen>
+  <dimen name="space_20dp">20dp</dimen>
+  <dimen name="space_30dp">30dp</dimen>
+
+
+  <dimen name="view_text_size">16sp</dimen>
+  <dimen name="text_size_12sp">12sp</dimen>
+  <dimen name="text_size_14sp">14sp</dimen>
+  <dimen name="text_size_16sp">16sp</dimen>
+  <dimen name="text_size_18sp">18sp</dimen>
+  <dimen name="text_size_20sp">20sp</dimen>
+
+  <!-- gif动画宽高 -->
+  <dimen name="gif_view_height">300dp</dimen>
+  <dimen name="gif_view_width">280dp</dimen>
+  <dimen name="dialog_top_padding">30dp</dimen>
+
+  <integer name="small_calendar_text_size">10</integer>
+  <dimen name="small_week_bar_height">28dp</dimen>
+  <dimen name="small_month_calendar_height">224dp</dimen>
 </resources>

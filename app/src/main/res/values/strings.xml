@@ -58,4 +58,16 @@
   <string name="note_edit">编辑</string>
   <string name="note_query">查询</string>
   <string name="note_query_success">查询成功</string>
+
+
+  <string name="select_success">已选好</string>
+  <string name="cancel">取消</string>
+  <string name="select_medic_box_num">请选择药仓</string>
+  <string name="medic_box_no_code">空</string>
+  <string name="sure">确定</string>
+
+  <string name="box_open_first">• 请打开对应药仓盖</string>
+  <string name="box_open_second">• 清空该药仓其他药品</string>
+  <string name="box_close_first">• 请确认需要放入的药品</string>
+  <string name="box_close_second">• 放入药品并关闭仓盖</string>
 </resources>

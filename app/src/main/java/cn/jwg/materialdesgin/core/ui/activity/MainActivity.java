@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import cn.jwg.materialdesgin.core.R;
 import cn.jwg.materialdesgin.core.common.bean.DrawerBean;
@@ -28,6 +29,7 @@ public class MainActivity extends Activity {
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerArrowDrawable drawerArrow;
     private DrawerDetailAdapter mDrawerDetailAdapter;
+    private Button btn_to_diag_activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class MainActivity extends Activity {
         ActionBar ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setHomeButtonEnabled(true);
-
+        btn_to_diag_activity = (Button) findViewById(R.id.btn_to_diag_activity);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         lv_drawer_area = (ListView) findViewById(R.id.lv_drawer_area);
         View convertView = getLayoutInflater().inflate(R.layout.item_user_avatar, null);
@@ -100,6 +102,14 @@ public class MainActivity extends Activity {
                         break;
                 }
 
+            }
+        });
+
+        btn_to_diag_activity.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DialogDisplayActivity.class);
+                startActivity(intent);
             }
         });
     }
