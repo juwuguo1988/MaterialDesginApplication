@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\AndroidStudioProjects\\MaterialDesginApplication\\dialoglib\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-w600dp-v13\\values-w600dp-v13.xml",
+        "outputFile": "/Users/hello/Desktop/xzlcorp/AndroidStudioProjects/MaterialDesginApplication/dialoglib/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-w600dp-v13/values-w600dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 114
                 },
                 "from": {
-                    "file": "C:\\Users\\Administrator\\.android\\build-cache\\42802e0d131dfc4c7c63229e1964f76b468f12f0\\output\\res\\values-w600dp\\values-w600dp.xml",
+                    "file": "/Users/hello/.android/build-cache/e9fa2076a8d647c2040be4b51104b63832e521c9/output/res/values-w600dp/values-w600dp.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 169
                 },
                 "from": {
-                    "file": "C:\\Users\\Administrator\\.android\\build-cache\\42802e0d131dfc4c7c63229e1964f76b468f12f0\\output\\res\\values-w600dp\\values-w600dp.xml",
+                    "file": "/Users/hello/.android/build-cache/e9fa2076a8d647c2040be4b51104b63832e521c9/output/res/values-w600dp/values-w600dp.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
