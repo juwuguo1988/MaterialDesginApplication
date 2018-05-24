@@ -223,6 +223,19 @@ public class MedicPlanTableUtils {
         return qb.list();
     }
 
+
+
+    public static List<MedicPlan> getAllEffectMedicPlanByBoxUUID(String boxUUID) {
+        QueryBuilder qb = MedicPlanTableUtils.getSingleTon().queryBuilder();
+        qb.where(qb.or(MedicPlanDao.Properties.BoxUuid.isNull(), MedicPlanDao.Properties.BoxUuid.eq(boxUUID)),
+                qb.or(qb.and(MedicPlanDao.Properties.CycleDays.eq(0), MedicPlanDao.Properties.Ended.isNull()),
+                        qb.and(MedicPlanDao.Properties.CycleDays.eq(1), MedicPlanDao.Properties.Ended.isNull()),
+                        qb.and(MedicPlanDao.Properties.CycleDays.eq(-1), MedicPlanDao.Properties.Ended.isNull(),
+                                MedicPlanDao.Properties.RemindFirstAt.gt(System.currentTimeMillis()))));
+        return qb.list();
+    }
+
+
     /**
      * 通过服药计划id 查询服药计划
      */
